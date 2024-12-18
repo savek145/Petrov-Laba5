@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Среднее значение массива</title>
+</head>
+<body>
+    <script>
+        const calculateAverage = (arr) => {
+            if (arr.length === 0) return 0;
+            return arr.reduce((sum, current) => sum + current, 0) / arr.length;
+        };
+
+
+        // Генерация случайного массива
+        const generateRandomArray = () => {
+            const length = Math.floor(Math.random() * 10) + 1; // случайная длина от 1 до 10
+            return Array.from({length}, () => Math.floor(Math.random() * 100)); // случайные числа от 0 до 99
+        };
+
+        const numbers = generateRandomArray();
+        alert(`Среднее значение массива [${numbers}]: ${calculateAverage(numbers)}`);
+    </script>
+</body>
+</html>

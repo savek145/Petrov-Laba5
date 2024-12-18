@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Filter</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h2>Email Filter</h2>
+    <input type="text" id="filterInput" placeholder="Search email..." onkeyup="filterEmails()">
+    <ul id="emailList"></ul>
+
+    <script>
+        const emails = [
+            'savek145@mail.ru',
+            'savek2015@mail.ru',
+            'gardi145c@gmail.com',
+            'EvaElfie@Ph.com',
+            'Yana.S@gmail.com',
+            'AnnaL@x.com',
+            'OlgaS@sal.com',
+        ];
+
+        function displayEmails(emailsToShow) {
+            const emailList = document.getElementById('emailList');
+            emailList.innerHTML = '';
+            emailsToShow.forEach(email => {
+                const li = document.createElement('li');
+                li.className = 'email-item';
+                li.textContent = email;
+                emailList.appendChild(li);
+            });
+        }
+
+        function filterEmails() {
+            const filterValue = document.getElementById('filterInput').value.toLowerCase();
+            const filteredEmails = emails.filter(email => 
+                email.toLowerCase().includes(filterValue)
+            );
+            displayEmails(filteredEmails);
+        }
+
+        // Initial display of all emails
+        displayEmails(emails);
+    </script>
+</body>
+</html>

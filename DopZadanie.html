@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Симулятор последовательностей</title>
+</head>
+<body>
+    <script>
+        const simulator = () => Math.floor(Math.random() * 3);
+        
+        const runSimulation = () => {
+            let currentSequence = 1;
+            let maxSequence = 1;
+            let currentColor = simulator();
+            let previousColor = currentColor;
+            let maxColor = currentColor;
+            
+            for(let i = 1; i < 1000000; i++) {
+                currentColor = simulator();
+                
+                if(currentColor === previousColor) {
+                    currentSequence++;
+                    if(currentSequence > maxSequence) {
+                        maxSequence = currentSequence;
+                        maxColor = currentColor;
+                    }
+                } else {
+                    currentSequence = 1;
+                }
+                previousColor = currentColor;
+            }
+            
+            const colors = ['красный', 'черный', 'белый'];
+            document.write(`Самая длинная последовательность: ${maxSequence}  цвета "${colors[maxColor]}"`);
+        }
+        
+        runSimulation();
+    </script>
+</body>
+</html>

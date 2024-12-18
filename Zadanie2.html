@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Тестовые задания</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>Тестовые задания</h1>
+    
+    <div class="question">
+        <p>1. Какой оператор используется для сложения в JavaScript?</p>
+        <input type="radio" name="q1" value="+" id="q1a"> <label for="q1a">+</label><br>
+        <input type="radio" name="q1" value="-" id="q1b"> <label for="q1b">-</label><br>
+        <input type="radio" name="q1" value="*" id="q1c"> <label for="q1c">*</label><br>
+    </div>
+
+    <div class="question">
+        <p>2. Откуда прибыл лунтик?</p>
+        <input type="radio" name="q2" value="С луны" id="q2a"> <label for="q2a">С луны</label><br>
+        <input type="radio" name="q2" value="С Солнца" id="q2b"> <label for="q2b">С Солнца</label><br>
+        <input type="radio" name="q2" value="С Марса" id="q2c"> <label for="q2c">С Марса</label><br>
+    </div>
+
+    <div class="question">
+        <p>3. Как объявить переменную в JavaScript?</p>
+        <input type="radio" name="q3" value="var" id="q3a"> <label for="q3a">var</label><br>
+        <input type="radio" name="q3" value="variable" id="q3b"> <label for="q3b">variable</label><br>
+        <input type="radio" name="q3" value="v" id="q3c"> <label for="q3c">v</label><br>
+    </div>
+
+    <button onclick="checkAnswers()">Проверить ответы</button>
+    <div id="result"></div>
+
+    <script>
+        const checkAnswers = function() {
+            let score = 0;
+            let feedback = '';
+            
+            // Проверка первого вопроса
+            const q1Answer = document.querySelector('input[name="q1"]:checked');
+            if (q1Answer && q1Answer.value === '+') {
+                score++;
+                feedback += '<p class="correct">Вопрос 1: Правильно!</p>';
+            } else {
+                feedback += '<p class="incorrect">Вопрос 1: Неправильно. Правильный ответ: +</p>';
+            }
+
+            // Проверка второго вопроса
+            const q2Answer = document.querySelector('input[name="q2"]:checked');
+            if (q2Answer && q2Answer.value === 'С луны') {
+                score++;
+                feedback += '<p class="correct">Вопрос 2: Правильно!</p>';
+            } else {
+                feedback += '<p class="incorrect">Вопрос 2: Неправильно. Правильный ответ: С луны</p>';
+            }
+
+            // Проверка третьего вопроса
+            const q3Answer = document.querySelector('input[name="q3"]:checked');
+            if (q3Answer && q3Answer.value === 'var') {
+                score++;
+                feedback += '<p class="correct">Вопрос 3: Правильно!</p>';
+            } else {
+                feedback += '<p class="incorrect">Вопрос 3: Неправильно. Правильный ответ: var</p>';
+            }
+
+            // Вывод результатов
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <h2>Результаты:</h2>
+                ${feedback}
+                <p>Общий счет: ${score} из 3</p>
+            `;
+        };
+    </script>
+</body>
+</html>

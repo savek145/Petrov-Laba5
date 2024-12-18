@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Массив и стрелочные функции</title>
+</head>
+<body>
+    <script>
+        // Создаем случайный массив
+        const generateArray = () => {
+            const length = 10;
+            return Array.from({length}, () => Math.floor(Math.random() * 100));
+        }
+
+        const arr = generateArray();
+        alert("Исходный массив:" + arr);
+
+        // Суммирование всех элементов
+        const sum = arr.reduce((acc, curr) => acc + curr, 0);
+        alert("Сумма всех элементов:" + sum);
+
+        // Выявление четных чисел
+        const evenNumbers = arr.filter(num => num % 2 === 0);
+        alert("Четные числа:" + evenNumbers);
+
+        // Умножение каждого элемента на 2
+        const multipliedArray = arr.map(num => num * 2);
+        alert("Массив с элементами, умноженными на 2:"+ multipliedArray);
+    </script>
+</body>
+</html>

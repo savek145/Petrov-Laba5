@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Проверка фамилии на палиндром</title>
+</head>
+<body>
+    <script>
+        const checkPalindrome = (surname) => {
+            const cleanSurname = surname.toLowerCase().replace(/\s/g, '');
+            return cleanSurname === cleanSurname.split('').reverse().join('');
+        }
+
+        const mySurname = "Говоров"; // Моя фамилия
+        const result = checkPalindrome(mySurname);
+        alert(`Является ли фамилия "${mySurname}" палиндромом: ${result}`);
+    </script>
+</body>
+</html>
